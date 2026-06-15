@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-family: "Inter", sans-serif !important;
+  }
+
+  /* Force all text components to default to Inter */
+  h1, h2, h3, h4, h5, h6, p, span, div, label, input, textarea, select {
+    font-family: "Inter", sans-serif;
+  }
+
+  /* Exclude buttons and action trigger buttons/links to preserve button fonts */
+  button, .btn-base, a.btn-base, [role="button"], .button-font {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+  }
+}
+
+@theme {
+  --color-brand-canvas: #F2EFEF;
+  --color-brand-cream: #F5EFEA;
+  --color-brand-rose: #F8DDEB;
+  --color-brand-lavender: #E6D8F2;
+  --color-brand-violet: #B57EDC;
+  --font-serif: "Inter", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+/* Base custom interactive animation classes corresponding to the Dribbble reference */
+:root {
+  --bg-app-canvas: #F8F6F4;          /* Fond général de l'image Dribbble */
+  --bg-screen-card: #EFEBE7;         /* Fond beige/crème des écrans de téléphone */
+  
+  /* Couleurs de Texte & Éléments Principaux */
+  --text-primary: #000000;           /* Titres et textes importants */
+  --text-secondary: #333333;         /* Descriptions de l'onboarding */
+  --text-muted: #8E8E93;             /* Indicateurs de pages inactifs (gris) */
+  --text-light: #FFFFFF;             /* Texte du bouton "Get started" */
+  
+  /* Éléments Interactifs (Buttons) */
+  --btn-dark-bg: #000000;            /* Fond du bouton principal "Get started" */
+  --btn-light-border: #000000;       /* Bordure des boutons "Skip" */
+  --btn-light-bg: transparent;       /* Fond des boutons "Skip" */
+
+  /* --- TYPOGRAPHIE (Standard Apple/Modern Mobile) --- */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Échelle de tailles (Optimisée pour écrans Retina/Mobile) */
+  --font-size-title: 24px;           /* Pour les titres : "Cake time", etc. */
+  --font-size-body: 13px;            /* Pour les paragraphes de description */
+  --font-size-btn: 14px;             /* Pour le texte dans les boutons */
+  --font-size-status-bar: 12px;      /* Pour l'heure (9:41) */
+
+  /* Épaisseurs de police (Font Weights) */
+  --weight-bold: 700;
+  --weight-medium: 500;
+  --weight-regular: 400;
+
+  /* --- STRUCTURE & BORDURES --- */
+  --radius-screen: 40px;             /* Arrondi des coins de l'écran du smartphone */
+  --radius-button: 24px;             /* Boutons de type "Pill" (entièrement arrondis) */
+  --radius-indicator: 50%;           /* Points de pagination */
+}
+
+/* ==========================================================================
+   CLASSES STYLES COMPOSANTS (Dribbble Matching specifications)
+   ========================================================================== */
+
+/* --- Barre de Statut Supérieure (9:41, Signal, Batterie) --- */
+.status-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-family);
+  font-size: var(--font-size-status-bar);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+  padding: 0 12px;
+}
+
+/* --- Section Illustration (3D Assets Area) --- */
+.illustration-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-height: 280px;
+  margin-top: 10px;
+}
+
+/* --- Section Contenu Textuel --- */
+.content-section {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.content-title {
+  font-size: 23px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.content-description {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0 auto;
+  max-width: 290px;
+}
+
+/* --- Indicateurs de Pagination (Dots) --- */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-indicator);
+  opacity: 0.3;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dot.active {
+  opacity: 1;
+  width: 16px; 
+  border-radius: 3px;
+}
+
+/* --- Zone des Boutons d'Action --- */
+.action-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Base Commune des Boutons (Style Pilule) */
+.btn-base {
+  font-family: var(--font-family);
+  font-size: var(--font-size-btn);
+  font-weight: var(--weight-bold);
+  height: 46px;                      /* Hauteur tactile standard et confortable */
+  width: 135px;                      /* Largeur fixe selon le design */
+  border-radius: var(--radius-button);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Bouton Secondaire : "Skip" */
+.btn-skip {
+  background-color: var(--btn-light-bg);
+  border: 1px solid var(--btn-light-border);
+  color: var(--text-primary);
+}
+
+.btn-skip:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Bouton Principal : "Get started" */
+.btn-get-started {
+  background-color: var(--btn-dark-bg);
+  color: var(--text-light);
+  width: 170px;
+}
+
+.btn-get-started:hover {
+  background-color: #1a1a1a;
+}
+
+.btn-get-started:active, .btn-skip:active {
+  transform: scale(0.97);
+}
+
+/* Print Overrides to ensure the table and tickets print cleanly */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  
+  /* Hide the onboarding wrapper and options when printing ticket */
+  div.transition-all.duration-700,
+  #phone-frame-onboarding, 
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Show ONLY the specific printable elements */
+  #invitation-ticket {
+    display: flex !important;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 380px !important;
+    border: none !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+}

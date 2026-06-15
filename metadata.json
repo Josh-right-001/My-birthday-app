@@ -1,0 +1,6 @@
+{
+  "name": "Birthday wisher-ticket",
+  "description": "Progressive Web App d'invitation d'anniversaire premium pour Josh Right.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
